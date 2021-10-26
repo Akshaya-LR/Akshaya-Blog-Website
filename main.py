@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 import smtplib
+import os
 
 
 app = Flask(__name__)
@@ -11,13 +12,13 @@ sub_msg = "Have anymore questions?"
 contact_head = "Message Me!"
 contact_sub = "Send me a quick message!"
 
-get_post = 'https://api.npoint.io/b9110dd9f30a652d5da0'
+get_post = os.environ.get("N_POINT_API")
 blog_p = requests.get(get_post)
 posts = blog_p.json()
 
 
-my_email = "akshayasharma0104@gmail.com"
-my_pwd = "Merry@12"
+email = os.environ.get("EMAIL")
+pwd = os.environ.get("PWD")
 
 
 @app.route('/')
@@ -44,13 +45,13 @@ def about():
     return render_template('about.html')
 
 
-def email_me(name, email, phone, msg):
-    email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{msg}"
+def email_me(name, mail, phone, msg):
+    email_message = f"Subject:New Message\n\nName: {name}\nEmail: {mail}\nPhone: {phone}\nMessage:{msg}"
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.ehlo()
         connection.starttls()
-        connection.login(my_email, my_pwd)
-        connection.sendmail(my_email, my_email, email_message)
+        connection.login(email, pwd)
+        connection.sendmail(email, email, email_message)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
