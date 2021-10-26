@@ -12,7 +12,7 @@ sub_msg = "Have anymore questions?"
 contact_head = "Message Me!"
 contact_sub = "Send me a quick message!"
 
-get_post = os.environ.get("N_POINT_API")
+get_post = 'https://api.npoint.io/b9110dd9f30a652d5da0'
 blog_p = requests.get(get_post)
 posts = blog_p.json()
 
@@ -46,7 +46,7 @@ def about():
 
 
 def email_me(name, mail, phone, msg):
-    email_message = f"Subject:New Message\n\nName: {name}\nEmail: {mail}\nPhone: {phone}\nMessage:{msg}"
+    email_message = f"Subject:New Message from Blog Website\n\nName: {name}\nEmail: {mail}\nPhone: {phone}\nMessage:{msg}"
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.ehlo()
         connection.starttls()
