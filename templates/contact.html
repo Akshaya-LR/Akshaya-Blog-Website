@@ -17,6 +17,11 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>The below form is <b>NOT working in Heroku app</b>, it's not accepting Gmail using SMTP method (Works perfectly on local machine). You might get an <b>"Internal Error"</b>.<br>
+                            I am looking at the alternatives (Heroku's Email API's) to fix this.<br>
+                            Sorry for the inconvenience.<br>
+                            ❗️***THIS WILL BE FIXED AS SOON AS POSSIBLE!!*** ❗️
+                        </p>
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         <div class="my-5">
                             <form id="contactForm" action="{{ url_for('contact') }}" method="post" novalidate>
