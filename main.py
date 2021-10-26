@@ -19,8 +19,8 @@ blog_p = requests.get(get_post)
 posts = blog_p.json()
 
 # Use environment variables for personal info
-email = os.environ.get("EMAIL")
-pwd = os.environ.get("PWD")
+# email = os.environ.get("EMAIL")
+# pwd = os.environ.get("PWD")
 
 
 # Home page route
@@ -56,8 +56,8 @@ def email_me(name, mail, phone, msg):
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.ehlo()
         connection.starttls()
-        connection.login(email, pwd)
-        connection.sendmail(email, email, email_message)
+        connection.login(os.environ.get("EMAIL"), os.environ.get("PWD"))
+        connection.sendmail(os.environ.get("EMAIL"), os.environ.get("EMAIL"), email_message)
 
 
 # Contact page route
