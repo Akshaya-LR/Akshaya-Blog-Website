@@ -3,6 +3,9 @@ from flask import Flask, render_template, request
 import requests
 import smtplib
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -19,8 +22,8 @@ blog_p = requests.get(get_post)
 posts = blog_p.json()
 
 # Use environment variables for personal info
-# email = os.environ.get("EMAIL")
-# pwd = os.environ.get("PWD")
+email = os.getenv("EMAIL")
+pwd = os.getenv("PWD")
 
 
 # Home page route
@@ -56,8 +59,8 @@ def email_me(name, mail, phone, msg):
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.ehlo()
         connection.starttls()
-        connection.login(os.environ.get("EMAIL"), os.environ.get("PWD"))
-        connection.sendmail(os.environ.get("EMAIL"), os.environ.get("EMAIL"), email_message)
+        connection.login(email, pwd)
+        connection.sendmail(email, email, email_message)
 
 
 # Contact page route
