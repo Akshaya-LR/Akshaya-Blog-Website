@@ -18,7 +18,7 @@ get_post = "https://api.npoint.io/b9110dd9f30a652d5da0"
 blog_p = requests.get(get_post)
 posts = blog_p.json()
 
-Use environment variables for personal info
+# Use environment variables for personal info
 email = os.environ.get("EMAIL")
 pwd = os.environ.get("PWD")
 
