@@ -25,8 +25,6 @@ posts = blog_p.json()
 email = os.environ["EMAIL"]
 pwd = os.environ["PWD"]
 
-# email = "akshayasharma0104@gmail.com"
-# pwd = "Merry@12"
 
 # Home page route
 @app.route('/')
