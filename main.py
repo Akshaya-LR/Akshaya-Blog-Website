@@ -3,9 +3,9 @@ from flask import Flask, render_template, request
 import requests
 import smtplib
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -22,8 +22,8 @@ blog_p = requests.get(get_post)
 posts = blog_p.json()
 
 # Use environment variables for personal info
-email = os.getenv("EMAIL")
-pwd = os.getenv("PWD")
+email = os.environ.get("EMAIL")
+pwd = os.os.environ.get("PWD")
 
 # email = "akshayasharma0104@gmail.com"
 # pwd = "Merry@12"
