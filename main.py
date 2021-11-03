@@ -23,7 +23,7 @@ posts = blog_p.json()
 
 # Use environment variables for personal info
 email = os.environ.get("EMAIL")
-pwd = os.os.environ.get("PWD")
+pwd = os.environ.get("PWD")
 
 # email = "akshayasharma0104@gmail.com"
 # pwd = "Merry@12"
